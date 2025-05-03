@@ -1,28 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Projects\ImportProjectsComponent;
-use App\Http\Livewire\Projects\ProjectDashboardComponent;
+use App\Livewire\ImportProjects;
+use App\Livewire\ProjectDashboard;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-}); 
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// }); 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/projects/import', ImportProjectsComponent::class)->name('projects.import');
+    Route::get('/import', ImportProjects::class)->name('import');
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/projects/dashboard', ProjectDashboardComponent::class)->name('projects.dashboard');
+    Route::get('/dashboard', ProjectDashboard::class)->name('dashboard');
 });
+use App\Livewire\TestComponent;
+
+Route::get('/test-livewire', TestComponent::class);
+
+
+// Route::get('/dashboard', ProjectDashboard::class)->name('dashboard');

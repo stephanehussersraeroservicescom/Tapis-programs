@@ -9,6 +9,11 @@
         @error('file') <span class="text-red-500">{{ $message }}</span> @enderror
     
         @if ($hasPreview)
+            <form wire:submit.prevent="import" class="mt-4">
+                <button type="submit" class="bg-green-600 text-black px-4 py-2 rounded">
+                    Confirm Import
+                </button>
+            </form>
             <table class="table-auto w-full mt-4 text-sm">
                 <thead>
                     <tr>
@@ -28,11 +33,7 @@
                 </tbody>
             </table>
     
-            <form wire:submit.prevent="import" class="mt-4">
-                <button type="submit" class="bg-green-600 text-black px-4 py-2 rounded">
-                    Confirm Import
-                </button>
-            </form>
+
         @endif
     
         @if (session()->has('message'))

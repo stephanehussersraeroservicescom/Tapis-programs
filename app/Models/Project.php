@@ -18,6 +18,7 @@ class Project extends Model
         'rep_id',
         'mill_id',
         'airline_id',
+        'design_firm_id',
         'style',
         'sample_matching',
         'project_reference',
@@ -42,4 +43,5 @@ class Project extends Model
     public function notes()   { return $this->hasMany(Note::class); }
     public function stackups() { return $this->hasMany(Stackup::class); }
     public function certifications() { return $this->hasMany(Certification::class); }
+    public function designFirm() {return $this->belongsTo(DesignFirm::class);}
 }
