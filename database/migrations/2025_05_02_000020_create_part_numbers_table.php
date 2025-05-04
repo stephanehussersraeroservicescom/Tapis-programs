@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('tapis_ref')->nullable();
             $table->unsignedBigInteger('rep_id')->nullable();
             $table->unsignedBigInteger('airline_id')->nullable();
+            $table->foreignId('program_id')->nullable()->constrained('programs')->onDelete('cascade');
             $table->string('application')->nullable();
             $table->string('tapis_part_number')->nullable();
             $table->string('color_name')->nullable();
