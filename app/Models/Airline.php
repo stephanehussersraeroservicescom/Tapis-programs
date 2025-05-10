@@ -14,4 +14,10 @@ class Airline extends Model
     public function projects() {
         return $this->hasMany(Project::class);
     }
+    public function partNumbers() {
+        return $this->hasMany(PartNumber::class);
+    }
+    public function programs() {
+        return $this->hasMany(Program::class);
+    }
 }

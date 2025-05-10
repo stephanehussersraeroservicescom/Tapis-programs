@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ImportProjects;
 use App\Livewire\ProjectDashboard;
+use App\Livewire\AssignPartNumbersToProgram;
+use App\Livewire\AirlinesProgramsIndex;
 
 
 Route::get('/', function () {
@@ -31,4 +33,8 @@ use App\Livewire\TestComponent;
 Route::get('/test-livewire', TestComponent::class);
 
 
-// Route::get('/dashboard', ProjectDashboard::class)->name('dashboard');
+Route::get('/assign-part-numbers', AssignPartNumbersToProgram::class)
+    ->name('assign.part-numbers');
+
+Route::get('/airlines-programs', AirlinesProgramsIndex::class)
+    ->name('airlines.programs');

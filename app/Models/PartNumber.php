@@ -17,4 +17,14 @@ class PartNumber extends Model
         'tapis_part_number',
         'color_name',
     ];
+    
+    public function programs()
+    {
+        return $this->belongsToMany(Program::class, 'part_number_program');
+    }
+
+    public function airline()
+    {
+        return $this->belongsTo(Airline::class);
+    }
 }
