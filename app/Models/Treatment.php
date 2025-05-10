@@ -8,13 +8,14 @@ class Treatment extends Model
 {
     protected $fillable = ['name', 'description', 'cert_status'];
 
-    public function materials(): BelongsToMany
+    public function programs()
     {
-        return $this->belongsToMany(Material::class);
+        return $this->belongsToMany(Program::class);
     }
 
     public function documents()
     {
         return $this->morphMany(Document::class, 'documentable');
     }
+    public function partNumbers() { return $this->belongsToMany(PartNumber::class); }
 }

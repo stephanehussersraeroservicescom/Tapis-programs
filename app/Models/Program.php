@@ -27,24 +27,14 @@ class Program extends Model
         return $this->belongsToMany(PartNumber::class, 'part_number_program');
     }
 
-    public function finalCustomer(): BelongsTo
+    public function designFirm(): BelongsTo
     {
-        return $this->belongsTo(FinalCustomer::class);
-    }
-
-    public function designAgency(): BelongsTo
-    {
-        return $this->belongsTo(DesignAgency::class);
+        return $this->belongsTo(DesignFirm::class);
     }
 
     public function designers(): BelongsToMany
     {
         return $this->belongsToMany(Designer::class);
-    }
-
-    public function materials(): BelongsToMany
-    {
-        return $this->belongsToMany(Material::class);
     }
 
     public function subcontractors(): BelongsToMany

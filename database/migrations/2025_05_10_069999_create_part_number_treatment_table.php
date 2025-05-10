@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('material_treatment', function (Blueprint $table) {
+        Schema::create('part_number_treatment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('material_id')->constrained()->onDelete('cascade');
+            $table->foreignId('part_number_id')->constrained()->onDelete('cascade');
             $table->foreignId('treatment_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
@@ -24,6 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('material_treatment');
+        Schema::table('part_number_treatment', function (Blueprint $table) {
+            $table->dropForeign(['part_number_id']);
+            $table->dropForeign(['treatment_id']);
+        });
+    
+        Schema::dropIfExists('part_number_treatment');
     }
 };

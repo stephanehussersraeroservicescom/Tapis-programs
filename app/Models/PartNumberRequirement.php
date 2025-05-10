@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramStage extends Model
+class PartNumberRequirement extends Model
 {
-    public function program() { return $this->belongsTo(Program::class); }
+    public function partNumber() { return $this->belongsTo(PartNumber::class); }
     public function documents() { return $this->morphMany(Document::class, 'documentable'); }
 }

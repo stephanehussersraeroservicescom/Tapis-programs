@@ -23,8 +23,17 @@ class PartNumber extends Model
         return $this->belongsToMany(Program::class, 'part_number_program');
     }
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
     public function airline()
     {
         return $this->belongsTo(Airline::class);
+    }
+
+    public function requirements() 
+    { return $this->hasMany(PartNumberRequirement::class);
     }
 }

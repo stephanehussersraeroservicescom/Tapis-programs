@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('stackup_layers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('stackup_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('material_id')->constrained()->cascadeOnDelete();
             $table->integer('position');
             $table->text('notes')->nullable();
             $table->timestamps();

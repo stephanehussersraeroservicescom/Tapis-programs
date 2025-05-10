@@ -21,8 +21,4 @@ class StackupLayer extends Model
         return $this->belongsTo(Stackup::class);
     }
 
-    public function material()
-    {
-        return $this->belongsTo(Material::class);
-    }
 }
